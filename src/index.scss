@@ -1,0 +1,104 @@
+$main-color: #333;
+
+@mixin border {
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+:root {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: $main-color;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-page__layout {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-page__layout_left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.main-page__layout_right {
+  width: 25%;
+}
+
+.chat_box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 85%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: bold;
+  padding: 20px;
+  @include border;
+}
+
+.chat_input {
+  width: 100%;
+  height: 8%;
+  min-height: 40px;
+}
+
+.chat_input > form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat_input > form > input {
+  width: 90%;
+  @include border;
+  border-radius: 5px 0 0 5px;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: inherit;
+  border-right: none;
+}
+
+.chat_input > form > button {
+  background-color: #fff;
+  width: 10%;
+  min-width: 60px;
+  font-size: inherit;
+  font-weight: bold;
+  @include border;
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+.chat_input > form > button:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.user_box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  @include border;
+  padding: 20px;
+}
+
+.user_box > h3 {
+  margin: 0;
+}
