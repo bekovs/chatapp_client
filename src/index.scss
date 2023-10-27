@@ -54,7 +54,7 @@ $main-color: #333;
 .chat_input {
   width: 100%;
   height: 8%;
-  min-height: 40px;
+  min-height: 50px;
 }
 
 .chat_input > form {
@@ -92,6 +92,9 @@ $main-color: #333;
 }
 
 .user_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -101,4 +104,43 @@ $main-color: #333;
 
 .user_box > h3 {
   margin: 0;
+}
+
+.user_box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.user_box form > input, button {
+  font-size: inherit;
+  font-weight: bold;
+  min-height: 50px;
+  background-color: #fff;
+  @include border
+}
+
+.user_box form > input {
+  padding: 0 20px;
+}
+
+.user_box form > button {
+  cursor: pointer;
+  transition: 150ms;
+  width: 50%;
+  min-width: 70px;
+}
+
+.user_box form > button:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.copyright {
+  align-self: center;
+}
+
+input:focus {
+  outline: none;
 }
