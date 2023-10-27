@@ -1,0 +1,1 @@
+export const API: string = "https://chatapp-f3pt.onrender.com/messages"
