@@ -1,8 +1,8 @@
 import axios from "axios";
 import { API } from "../../helpers/consts"
-import { AppDispatch } from "../store"
-import { storeMessages, Message } from "./messageSlice";
+import { Message } from "./messageSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { WSURL } from "../../helpers/consts";
 
 const config: any = {
   headers: {
@@ -10,14 +10,18 @@ const config: any = {
   }
 }
 
-export const fetchMessages = async (dispatch: AppDispatch): Promise<any> => {
+
+export const ws = new WebSocket(WSURL);
+
+export const fetchMessages = createAsyncThunk('messages/all', async () => {
   try {
     const { data } = await axios.get(API, config);
-    dispatch(storeMessages(data));
-  } catch (error: any) {
+    return data
+  } catch (error) {
     console.log(error);
   }
-}
+
+})
 
 export const sendMessage = createAsyncThunk('messages/create', async (message: Message) => {
   try {

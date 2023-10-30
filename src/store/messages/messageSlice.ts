@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { fetchMessages } from "./messageActions"
 
 export interface Message {
   _id?: string,
@@ -19,9 +20,14 @@ export const messageSlice = createSlice({
   initialState,
   reducers: {
     storeMessages: (state, action: PayloadAction<any>) => {
-      state.messages = action.payload;
+      state.messages.push(action.payload);
     }
   },
+  extraReducers: builder => {
+    builder.addCase(fetchMessages.fulfilled, (state, action: PayloadAction<any>) => {
+      state.messages = action.payload;
+    })
+  }
 })
 
 export const { storeMessages } = messageSlice.actions
