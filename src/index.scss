@@ -16,6 +16,18 @@ $main-color: #333;
   -webkit-text-size-adjust: 100%;
 }
 
+::-webkit-scrollbar-track {
+  border-radius: 0.125rem;
+}
+::-webkit-scrollbar {
+  width: 0.25rem;
+  border-radius: 0.125rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.125rem;
+  background-color: rgb(210, 210, 210);
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
@@ -144,4 +156,23 @@ $main-color: #333;
 
 input:focus {
   outline: none;
+}
+
+@media all and (max-width: 750px) {
+  .main-page__layout {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .main-page__layout_left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+  }
+  
+  .main-page__layout_right {
+    width: 100%;
+  }
 }
